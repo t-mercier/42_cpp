@@ -5,19 +5,19 @@
 
 class Contact {
 private:
-  int index;
   std::string firstName;
   std::string lastName;
   std::string nickName;
 
-public:
   // creation of a constructor Contact with
   // an initializer list -> initiates directly
   // the class members when they will be created
-  Contact(int idx, std::string fName, std::string lName, std::string nName)
-      : index(idx), firstName(fName), lastName(lName), nickName(nName) {}
-  void setIndex();
-  void setFname();
-  void setLname();
-  void setNname();
+public:
+    Contact() : firstName(""), lastName(""), nickName(""){};
+    Contact(std::string fName, std::string lName, std::string nName)
+        : firstName(fName), lastName(lName), nickName(nName){};
+  std::string getFirstName();
+  std::string getLastName();
+  std::string getNickName();
+  std::string getInput(std::string);
 };

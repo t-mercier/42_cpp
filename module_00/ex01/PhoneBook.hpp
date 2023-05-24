@@ -9,8 +9,9 @@ private:
   Contact contacts[8];
 
 public:
-  void addContact();
+  Contact *addContact(int i);
+  void fillBook(int);
   void searchContact();
-  void displayContact();
+  void displayContact(std::string);
   void prompt();
 };

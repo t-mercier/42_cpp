@@ -1,8 +1,8 @@
 # Variables
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-TARGET = megaphone
-SRC = megaphone.cpp
+TARGET = ☎️ 
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
 # Rules
@@ -11,8 +11,8 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJ)
 
-$(OBJ): $(SRC)
-	$(CXX) $(CXXFLAGS) -c $(SRC)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean fclean re
 
