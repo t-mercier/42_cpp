@@ -1,9 +1,7 @@
 #pragma once
 
 #include "Contact.hpp"
-#include <iostream> // For std::cout
-#include <string>   // For std::string#include <cstdlib>
-#include <iomanip> 
+
 
 class PhoneBook {
 private:
@@ -15,5 +13,7 @@ public:
   void fillPb(int);
   void searchContact();
   void prompt();
+  void displayLine(std::string);
+
   // bool checkEmpty(Contact);
 };
