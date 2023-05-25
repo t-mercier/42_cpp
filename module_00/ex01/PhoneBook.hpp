@@ -14,4 +14,5 @@ public:
   void searchContact();
   void displayContact(std::string);
   void prompt();
+  
 };
