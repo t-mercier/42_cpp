@@ -1,19 +1,20 @@
 #pragma once
-
 #include "Contact.hpp"
-
 
 class PhoneBook {
 private:
+  std::string a, b, c, d, e;
   Contact contacts[8];
+  int idx;
 
 public:
-  
-  Contact *addContact(int i);
-  void fillPb(int);
-  void searchContact();
-  void prompt();
-  void displayLine(std::string);
-
-  // bool checkEmpty(Contact);
+  void index();
+  void add();
+  void search();
+  void getInput(std::string);
+  void addField(std::string &, std::string);
+  std::string trunc(std::string);
 };
+
+void prompt(std::string);
+void error(std::string);

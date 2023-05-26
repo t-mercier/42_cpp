@@ -1,13 +1,27 @@
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+void error(std::string s) {
+  if (std::cin.eof())
+    exit(0);
+  std::cout << RED << "ERROR > " << s << RESET << std::endl;
+}
+
+void prompt(std::string s) {
+  if (std::cin.eof())
+    exit(0);
+  std::cout << s << "☎️  > ";
+}
 
 int main() {
   PhoneBook pb;
-  pb.prompt();
-  for (int i = 0;; i++) {
-    pb.fillPb(i);
-    if (i == 7)
-      i = 0;
+  std::string cmd;
+  pb.index();
+  while (1) {
+    if (std::cin.eof())
+      exit(0);
+    prompt("ADD | SEARCH | EXIT ");
+    getline(std::cin, cmd);
+    pb.getInput(cmd);
   }
   return 0;
 }

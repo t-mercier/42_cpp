@@ -1,52 +1,61 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <iostream>
 
- 
-void PhoneBook::displayLine(std::string s) {
-  if (s.size() > 9)
+void PhoneBook::index() { idx = 0; }
+
+std::string PhoneBook::trunc(std::string s) {
+  if (s.size() > 10)
     s = s.substr(0, 9) + ".";
-  std::cout << std::setw(10) << std::right << s + "|";
+  return s;
 }
 
-void PhoneBook::prompt() {
-  std::string usage = "\nADD > Save a new contact\nSEARCH > display a "
-                      "specific contact\nEXIT > Quit the program\n";
-  std::cout << "--------" << usage << "--------" << std::endl;
-}
+void PhoneBook::search() {
+  std::string s;
 
-void PhoneBook::searchContact() {
-  std::string s, s2;
-  int i;
-
-  std::cout << "Enter Contact Index" << std::endl;
-  std::cin >> i;
-  if ((i < 1 || i > 8)) {
-    std::cout << "Error > Index range is [ 1 - 8 ]" << std::endl;
+  prompt("Index Search [ 1 - 8 ] ");
+  std::getline(std::cin, s);
+  if (std::cin.eof())
+    exit(0);
+  int i = std::stoi(s);
+  if (i < 1 || i > 8) {
+    std::cin.ignore(INT_MAX, '\n');
+    error("Wrong number");
     return;
   }
-  if (!contacts[i].checkEmpty(i)) {
-    i--;
-	std::cout << "|";
-    displayLine(contacts[i].getFirstName());
-    displayLine(contacts[i].getLastName());
-    displayLine(contacts[i].getNickName());
-    displayLine(contacts[i].getSecret());
-  }
+  i--;
+  Contact c = contacts[i];
+  std::cout << std::setw(10) << i + 1 << "|";
+  std::cout << std::setw(10) << trunc(c.getFirstName()) << "|";
+  std::cout << std::setw(10) << trunc(c.getLastName()) << "|";
+  std::cout << std::setw(10) << trunc(c.getNickName()) << "|" << std::endl;
 }
 
-void PhoneBook::fillPb(int i) {
-  std::string input;
+void PhoneBook::addField(std::string &x, std::string s) {
+  std::cout << GREEN << s << RESET;
+  getline(std::cin, x);
+}
 
-  std::getline(std::cin, input);
-  std::cin.clear();
-  if (input == "ADD")
-    addContact(i);
-  else if (input == "SEARCH")
-    searchContact();
-  else if (input == "EXIT") {
-    std::cout << "Exiting PhoneBook" << std::endl;
+void PhoneBook::add() {
+  addField(a, "First name > ");
+  addField(b, "Last name > ");
+  addField(c, "Nickname > ");
+  addField(d, "Phone > ");
+  addField(e, "Secret > ");
+  contacts[idx++] = Contact(a, b, c, d, e);
+  if (idx == 8)
+    idx = 0;
+}
+
+void PhoneBook::getInput(std::string cmd) {
+  if (std::cin.eof())
     exit(0);
-  } else
-    std::cout << "> ";
+  if (cmd.empty())
+    return;
+  if (cmd == "ADD")
+    add();
+  else if (cmd == "SEARCH")
+    search();
+  else if (cmd == "EXIT")
+    exit(0);
+  else
+    error("Enter a valid command");
 }
