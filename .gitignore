@@ -35,3 +35,7 @@
 **/.git
 /.vscode
 .DS_Store
+**/out
+**/obj
+/obj
+/out

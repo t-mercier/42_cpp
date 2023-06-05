@@ -3,20 +3,13 @@
 Fixed::Fixed() : _value(0) {
   std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const Fixed &n) : _value(n._value) {
+Fixed::Fixed(const Fixed &other) : _value(other._value) {
   std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int &n) : _value(n._value) {
-  std::cout << "Int constructor called" << std::endl;
-}
-Fixed::Fixed(const float) : _value() {
-  std::cout << "Float constructor called" << std::endl;
-};
-
-Fixed &Fixed::operator=(const Fixed &n) {
+Fixed &Fixed::operator=(const Fixed &other) {
   std::cout << "Copy assignment operator called" << std::endl;
-  this->_value = n.getRawBits();
+  this->_value = other.getRawBits();
   return *this;
 }
 

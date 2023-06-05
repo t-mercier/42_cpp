@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cmath>
 #include <iostream>
 
 class Fixed {
@@ -9,9 +10,13 @@ private:
 
 public:
   Fixed();
-  Fixed(const Fixed &other);
-  Fixed &operator=(const Fixed &other);
+  Fixed(const int &);
+  Fixed(const float &);
+  Fixed(const Fixed &);
+  Fixed &operator=(const Fixed &);
   ~Fixed();
   int getRawBits() const;
   void setRawBits(int const raw);
+  float toFloat(void) const;
+  int toInt( void ) const;
 };
