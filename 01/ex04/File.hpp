@@ -9,15 +9,13 @@
 class File {
 public:
   void replace(char **);
-  void lineCopy();
-  std::string newLine();
+  void newLine(std::string);
 
 private:
   size_t i;
   size_t j;
   std::string s1;
   std::string s2;
-  std::string s3;
   std::string line;
   std::ifstream in;
   std::ofstream out;
