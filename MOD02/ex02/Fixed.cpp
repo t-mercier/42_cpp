@@ -60,7 +60,7 @@ Fixed         Fixed::operator+(const Fixed &b) const {
 }
 Fixed Fixed::operator-(const Fixed &b) const {
   Fixed r;
-  r.setRawBits(getRawBits() + -b.getRawBits());
+  r.setRawBits(getRawBits() - b.getRawBits());
   return r;
 }
 Fixed Fixed::operator*(const Fixed &b) const {
@@ -70,7 +70,7 @@ Fixed Fixed::operator*(const Fixed &b) const {
 }
 Fixed Fixed::operator/(const Fixed &b) const {
   Fixed r;
-  r.setRawBits(getRawBits() << _fract / b.getRawBits());
+  r.setRawBits((getRawBits() << _fract) / b.getRawBits());
   return r;
 }
 
