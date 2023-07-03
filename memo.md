@@ -80,3 +80,28 @@ Fixed c = a++;  // Calls a.operator++(0), a is now 12, but c is 11 (the old valu
 
 *The prefix increment* (++x) increases _v and then returns the current object. It's implemented as a member function that takes no arguments and returns a reference to the current object.
 *The postfix increment* (x++) increases _v but returns the old value of the current object. It's implemented as a member function that takes an int argument (which is ignored) and returns a new Fixed object.
+
+
+/*
+
+int to fixed -> left bit shift by fractional bits _f
+fixed to int -> right bit shift by fractional bits _f
+fixed to float -> divide 2, raised to the power of
+  the fractional bits to obtain the floating-point representation
+  of the fixed-point value.
+
+The << operator is overloaded as a friend function
+of the Fixed class. It takes two parameters:
+- std::ostream& os -> the output stream (std::cout in this case)
+- const Fixed& fixed -> the Fixed object to insert into the output stream.
+Inside the operator<< function, we convert the _value member of
+the Fixed object to a floating-point representation by dividing it
+by 2 raised to the power of the _fractional_bits.
+This gives the equivalent floating-point value.
+Then, we insert this value into the output stream os.
+
+With this operator overload, we can use std::cout << fixedObject
+to insert the floating-point representation of the Fixed object
+into the output stream and print it to the console.
+
+*/

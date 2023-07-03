@@ -21,7 +21,7 @@ public:
 
 private:
   int              _raw;
-  static const int _fract; // fractional bits
+  static const int _fract;
 };
 
 std::ostream &operator<<(std::ostream &, const Fixed &);
