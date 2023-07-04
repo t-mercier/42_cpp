@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "ClapTrapp.hpp"
 
 /*============================= constructors =============================*/
 
@@ -16,7 +16,6 @@ ClapTrap::~ClapTrap() { self() << "dtor" << std::endl; }
 void ClapTrap::attack(const std::string &target) {
   std::cout << "ClapTrap " << name << "attacks " << target << ", causing "
             << this->ap << "points of damage!" << std::endl;
-
 }
 
 void takeDamage(unsigned int amount) {

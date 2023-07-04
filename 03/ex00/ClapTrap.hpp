@@ -20,7 +20,6 @@ protected:
   virtual std::ostream &self();
   std::string name;
   float hp, ep, ap;
-  
 };
 #pragma once
 
@@ -44,5 +43,4 @@ protected:
   virtual std::ostream &self();
   std::string name;
   float hp, ep, ap;
-  
 };
