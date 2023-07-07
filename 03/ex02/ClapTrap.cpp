@@ -48,7 +48,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::attack(const std::string &target) {
   if (_energy <= 0 || _health <= 0) {
-    state() << " Not strong enough to attack !!" << std::endl;
+    state() << " Not strong enough to attack !!";
     return;
   }
   self() << "attack " << target << " causing " << _damage << " damages"

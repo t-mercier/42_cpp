@@ -1,46 +1,38 @@
-### Key words
+# KEY WORDS
 
-The `const` keyword at the end of the function declaration means that this function does not modify the object it's called on. 
-`operator>` is a member function that takes another Fixed object and returns a bool. This function is called whenever we use the > operator on a Fixed object. It compares the _v member variable of the current object with the _v member variable of the n object.
+### **# CONST**
+
+`const` keyword indicates that the function promises not to modify the value of that parameter. It provides a guarantee to the caller of the function that the argument passed is read-only and so will not be modified. 
 
 `this` keyword is a pointer to the current object. When you dereference it with `*this`, you get the current object itself, which you can use to make a copy of the entire object. When you use `this->_v`, you're accessing the `_v` member of the current object.
 
-### Operator Overloading
-- **What is Operator Overloading?**  
-Operator overloading allows you to redefine the way operators work for user-defined types (like classes). This means you can provide your own function for an operator, and that function will be called whenever you use that operator on your user-defined type.
+<br>
 
-- **How to Overload an Operator?**  
-To overload an operator, you write a function with the keyword operator followed by the operator you want to overload. This function can be a member function of your class or a standalone function (for some operators).
+# Operator Overloading
+
+- Function using the keyword operator followed by the operator to overload. 
+The function can be a member function of your class or a standalone function (for some operators).
 
 - **Syntax for Member Function:**  
 If the operator function is a member function, it takes one less argument than the operator usually requires. This is because the "current" object (the object on which the function is called) is used as the first operand. For example, to overload the > operator for a Fixed class, you would write:
 
 ```cpp
-class Fixed {
-    // ...
-    bool operator>(const Fixed &other) const {
-        // Your comparison logic here...
-    }
-};
+    bool operator>(const Fixed &other) const {return _member > other._member}
 ```
 
 - **Syntax for Standalone Function:**
 If the operator function is a standalone function, it takes as many arguments as the operator usually requires. Both operands are passed as arguments. For example, to overload the > operator for a Fixed class, you would write:
 
 ```cpp
-bool operator>(const Fixed &a, const Fixed &b) {
-    // Your comparison logic here...
-}
+    bool operator>(const Fixed &a, const Fixed &b) { return a._member > b._member } 
 ```
-- **Using Overloaded Operators:**
-You use overloaded operators just like you would use the built-in operators. For example, if you've overloaded the > operator for a Fixed class, you can use it like this:
+
+- Overloaded operators are used the same way as the built-in operators. For example, the > operator for a `MyClass` class, you can use it like this:
 
 ```cpp
-Fixed a(10);
-Fixed b(20);
-if (a > b) {
-    // Do something...
-}
+MyClass a(10);
+MyClass b(20);
+if (a > b) { /* do something */ }
 ```
 *In this code, a > b calls a.operator>(b). Inside the operator> function, this->_v refers to a._v, and other._v refers to b._v.*
 *a > b, is equivalent to calling a.operator>(b).*
@@ -81,27 +73,9 @@ Fixed c = a++;  // Calls a.operator++(0), a is now 12, but c is 11 (the old valu
 *The prefix increment* (++x) increases _v and then returns the current object. It's implemented as a member function that takes no arguments and returns a reference to the current object.
 *The postfix increment* (x++) increases _v but returns the old value of the current object. It's implemented as a member function that takes an int argument (which is ignored) and returns a new Fixed object.
 
+<br>
 
-/*
+# REFERENCING
+The ampersand `&` in the return type `std::ostream&` indicates that the function returns a reference to a `std::ostream`
+It means that when you call `init()` and use the returned reference, you can continue chaining output operations `<<` on that `std::ostream` object.
 
-int to fixed -> left bit shift by fractional bits _f
-fixed to int -> right bit shift by fractional bits _f
-fixed to float -> divide 2, raised to the power of
-  the fractional bits to obtain the floating-point representation
-  of the fixed-point value.
-
-The << operator is overloaded as a friend function
-of the Fixed class. It takes two parameters:
-- std::ostream& os -> the output stream (std::cout in this case)
-- const Fixed& fixed -> the Fixed object to insert into the output stream.
-Inside the operator<< function, we convert the _value member of
-the Fixed object to a floating-point representation by dividing it
-by 2 raised to the power of the _fractional_bits.
-This gives the equivalent floating-point value.
-Then, we insert this value into the output stream os.
-
-With this operator overload, we can use std::cout << fixedObject
-to insert the floating-point representation of the Fixed object
-into the output stream and print it to the console.
-
-*/
