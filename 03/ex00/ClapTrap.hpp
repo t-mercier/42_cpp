@@ -18,6 +18,8 @@ public:
 protected:
   virtual std::ostream &self();
   virtual std::ostream &state();
+
+private:
   std::string _name;
   float _health, _energy, _damage;
 };
