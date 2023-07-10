@@ -4,15 +4,33 @@
 class Animal {
 public:
   Animal();
-  Animal(std::string);
-  Animal(const Animal &);
-  ~Animal();
+  Animal(const std::string &);
+  virtual ~Animal();
 
-  void attack(const std::string &);
-  void takeDamage(unsigned int);
-  void beRepaired(unsigned int);
+  virtual std::string getType() const;
+  virtual void makeSound() const;
 
 protected:
   std::string _type;
-  // virtual std::ostream &self();
+  virtual std::ostream &self() const;
+};
+
+
+/*=======================================================================*/
+/*                            WRONG ANIMAL                               */
+/*=======================================================================*/
+
+
+class wrongAnimal {
+public:
+  wrongAnimal();
+  wrongAnimal(const std::string &);
+  virtual ~wrongAnimal();
+
+  virtual std::string getType() const;
+  virtual void makeSound() const;
+
+protected:
+  std::string _type;
+  virtual std::ostream &wrongSelf() const;
 };
