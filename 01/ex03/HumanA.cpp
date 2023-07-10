@@ -1,6 +1,5 @@
 #include "HumanA.hpp"
 #include "Weapon.hpp"
-#include <string>
 
 HumanA::HumanA(std::string s, Weapon &w) : _name(s), weaponType(w) {}
 

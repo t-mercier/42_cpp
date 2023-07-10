@@ -1,5 +1,4 @@
 #include "ClapTrap.hpp"
-#include <type_traits>
 
 /*
  * RULES

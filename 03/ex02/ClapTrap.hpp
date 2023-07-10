@@ -1,8 +1,5 @@
 #pragma once
-
-#include <cmath>
 #include <iostream>
-#include <ostream>
 
 class ClapTrap {
 public:
