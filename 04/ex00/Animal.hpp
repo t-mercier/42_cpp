@@ -7,7 +7,7 @@ public:
   Animal(const std::string &);
   virtual ~Animal();
 
-  virtual std::string getType() const;
+  std::string getType() const;
   virtual void makeSound() const;
 
 protected:
@@ -27,8 +27,8 @@ public:
   wrongAnimal(const std::string &);
   virtual ~wrongAnimal();
 
-  virtual std::string getType() const;
-  virtual void makeSound() const;
+  std::string getType() const;
+  void makeSound() const;
 
 protected:
   std::string _type;

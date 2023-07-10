@@ -32,7 +32,7 @@ wrongAnimal::wrongAnimal(const std::string &type) : _type(type) {
 /*=============================== methods ===============================*/
 
 std::string wrongAnimal::getType() const { return _type; }
-void wrongAnimal::makeSound() const {wrongSelf() << "a non-animal sound" << std::endl;};
+void wrongAnimal::makeSound() const {wrongSelf() << "gygygg" << std::endl;};
 std::ostream &wrongAnimal::wrongSelf() const { return std::cout << _type << " -> "; }
 
 /*============================== destructors =============================*/
