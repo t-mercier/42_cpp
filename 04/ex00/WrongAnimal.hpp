@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 
-class Animal {
+class WrongAnimal {
 public:
-  Animal();
-  Animal(std::string);
-  Animal(Animal const &);
-  virtual ~Animal();
+  WrongAnimal();
+  WrongAnimal(std::string);
+  WrongAnimal(WrongAnimal const &);
+  virtual ~WrongAnimal();
   std::string getType() const;
   virtual void makeSound() const;
 

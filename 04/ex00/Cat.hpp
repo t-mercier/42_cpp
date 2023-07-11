@@ -4,20 +4,6 @@
 class Cat : public Animal {
 public:
   Cat();
-
-protected:
-  void makeSound() const;
-};
-
-/*=======================================================================*/
-/*                            WRONG CAT                                  */
-/*=======================================================================*/
-
-
-class wrongCat : public wrongAnimal {
-public:
-  wrongCat();
-
-protected:
+  ~Cat();
   void makeSound() const;
 };

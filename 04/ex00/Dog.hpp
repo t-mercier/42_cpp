@@ -4,7 +4,6 @@
 class Dog : public Animal {
 public:
   Dog();
-
-protected:
+  ~Dog();
   void makeSound() const;
 };

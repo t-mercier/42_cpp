@@ -1,20 +1,9 @@
 #include "Cat.hpp"
-#include "Animal.hpp"
 
-Cat::Cat() : Animal("Cat"){};
-
-void Cat::makeSound() const { self() << " meoww" << std::endl; }
-
-/*=======================================================================*/
-/*                            WRONG CAT                                  */
-/*=======================================================================*/
-
-wrongCat::wrongCat() : wrongAnimal("wrong cat"){};
-
-void wrongCat::makeSound() const {
-
-  // wrongAnimal animal;
-
-  // animal.getType();
-  wrongSelf() << "weird sound" << std::endl;
+Cat::Cat() : Animal("Cat") {
+  self() << "Constructor" << std::endl;
 }
+
+void Cat::makeSound() const { std::cout << "[ Cat Sound ]" << std::endl; }
+
+Cat::~Cat() { self() << "Destructor" << std::endl; };

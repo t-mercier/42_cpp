@@ -1,6 +1,10 @@
 # Variables
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS += -std=c++98
+ifndef DEV
+	CXXFLAGS += -Wall -Wextra -Werror -std=c++98
+endif	
+
 TARGET = out
 SRC = $(wildcard *.cpp)
 OBJ_DIR = obj

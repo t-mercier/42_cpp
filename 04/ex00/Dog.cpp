@@ -1,8 +1,9 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("dog"){
-  // _type = "dog";
-  // self() << "Default Constructor" << std::endl;
-};
+Dog::Dog() : Animal("Dog") {
+  self() << "Constructor" << std::endl;
+}
 
-void Dog::makeSound() const { self() << "barks" << std::endl; }
+void Dog::makeSound() const { std::cout << "[ Dog Sound ]" << std::endl; }
+
+Dog::~Dog() { std::cout << "Destructor" << std::endl; };
