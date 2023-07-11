@@ -2,17 +2,12 @@
 
 /*============================= constructors =============================*/
 
-WrongAnimal::WrongAnimal() : _type() {
-  _type = "WrongAnimal";
-  self() << "Default Constructor" << std::endl;
-}
-
-WrongAnimal::WrongAnimal(std::string type) : _type(type) {
-  self() << "Constructor" << std::endl;
+WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
+  std::cout << "WrongAnimal Default Constructor" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &a) : _type(a._type) {
-  self() << "Clone Constructor" << std::endl;
+  std::cout << "WrongAnimal Clone Constructor" << std::endl;
 }
 
 /*=============================== methods ===============================*/
@@ -23,10 +18,6 @@ void WrongAnimal::makeSound() const {
   std::cout << "[ WrongAnimal ]" << std::endl;
 };
 
-std::ostream &WrongAnimal::self() {
-  return std::cout << _type << " ";
-}
-
 /*============================== destructors =============================*/
 
-WrongAnimal::~WrongAnimal() { self() << "Destructor" << std::endl; }
+WrongAnimal::~WrongAnimal() { std::cout << "WrongAnimal Destructor" << std::endl; }

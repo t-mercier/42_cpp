@@ -4,7 +4,6 @@
 class Animal {
 public:
   Animal();
-  Animal(std::string);
   Animal(Animal const &);
   virtual ~Animal();
   std::string getType() const;
@@ -12,5 +11,4 @@ public:
 
 protected:
   std::string _type;
-  virtual std::ostream &self();
 };

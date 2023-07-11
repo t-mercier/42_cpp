@@ -17,8 +17,9 @@ int main() {
 
   const WrongAnimal *meta2 = new WrongAnimal();
   const WrongAnimal *k = new WrongCat();
-  k->makeSound(); // will output the cat sound!
+  k->makeSound();
   meta2->makeSound();
 
   return 0;
 }
+
