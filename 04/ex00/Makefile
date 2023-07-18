@@ -2,10 +2,10 @@
 CXX = c++
 CXXFLAGS += -std=c++98
 ifndef DEV
-	CXXFLAGS += -Wall -Wextra -Werror -std=c++98
+	CXXFLAGS += -Wall -Wextra -Werror
 endif	
 
-TARGET = out
+TARGET = exec
 SRC = $(wildcard *.cpp)
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

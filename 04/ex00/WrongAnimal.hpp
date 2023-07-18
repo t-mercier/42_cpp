@@ -4,8 +4,10 @@
 class WrongAnimal {
 public:
   WrongAnimal();
-  WrongAnimal(WrongAnimal const &);
+  WrongAnimal(WrongAnimal const&);
   virtual ~WrongAnimal();
+
+  WrongAnimal& operator=(WrongAnimal const&);
   std::string getType() const;
   void makeSound() const;
 

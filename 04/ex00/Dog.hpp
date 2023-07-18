@@ -4,6 +4,8 @@
 class Dog : public Animal {
 public:
   Dog();
+  Dog(Dog const&);
   ~Dog();
+
   void makeSound() const;
 };

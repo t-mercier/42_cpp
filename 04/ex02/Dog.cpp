@@ -1,36 +1,36 @@
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 /*_____________________________ constructors _____________________________*/
 
-Cat::Cat() {
-  _type = "Cat";
+Dog::Dog() {
+  _type = "Dog";
   _brain = new Brain();
-  std::cout << "Cat Constructor" << std::endl;
+  std::cout << "Dog Constructor" << std::endl;
 }
 
-Cat::Cat(Cat const& o) {
+Dog::Dog(Dog const& o) {
   _type = o._type;
   _brain = new Brain(*o._brain);
-  std::cout << "Cat Clone Constructor" << std::endl;
+  std::cout << "Dog Clone Constructor" << std::endl;
 }
 
 /*______________________________ destructor ______________________________*/
 
-Cat::~Cat() {
+Dog::~Dog() {
   delete _brain;
-  std::cout << "Cat Destructor" << std::endl;
+  std::cout << "Dog Destructor" << std::endl;
 };
 
 /*_______________________________ overloads ______________________________*/
 
 std::ostream&
-operator<<(std::ostream& o, Cat const& rhs) {
-  o << rhs.getBrain().getIdea(0);
+operator<<(std::ostream& o, Dog const& rhs) {
+  o << rhs.getType() << ": ";
   return o;
 }
 
-Cat&
-Cat::operator=(Cat const& o) {
+Dog&
+Dog::operator=(Dog const& o) {
   if (&o != this) {
     _type = o._type;
     *_brain = *o._brain;
@@ -41,13 +41,13 @@ Cat::operator=(Cat const& o) {
 /*________________________________ methods _______________________________*/
 
 void
-Cat::makeSound() const {
-  std::cout << "[ Cat Sound ]" << std::endl;
+Dog::makeSound() const {
+  std::cout << "[ Dog Sound ]" << std::endl;
 }
 
 /*_______________________________ accessors ______________________________*/
 
 Brain&
-Cat::getBrain() const {
+Dog::getBrain() const {
   return *_brain;
 }

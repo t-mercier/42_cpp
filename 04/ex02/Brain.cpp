@@ -2,9 +2,7 @@
 
 /*_____________________________ constructors _____________________________*/
 
-Brain::Brain() {
-  OUT "Brain Constructor" << std::endl;
-}
+Brain::Brain() { OUT "Brain Constructor" << std::endl; }
 
 Brain::Brain(Brain const& o) {
   for (int i = 0; i != Brain::N; i++)

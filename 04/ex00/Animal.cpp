@@ -1,21 +1,46 @@
 #include "Animal.hpp"
 
-/*============================= constructors =============================*/
+/*_____________________________ constructors _____________________________*/
 
-Animal::Animal() : _type("Animal") {
-  std::cout  << "Animal Default Constructor" << std::endl;
+Animal::Animal()
+  : _type("Animal") {
+  std::cout << "Animal Constructor" << std::endl;
 }
 
-Animal::Animal(const Animal &o) : _type(o._type) {
-  std::cout  << "Animal Clone Constructor" << std::endl;
+Animal::Animal(const Animal& o)
+  : _type(o._type) {
+  std::cout << "Animal Clone Constructor" << std::endl;
 }
 
-/*=============================== methods ===============================*/
+/*______________________________ destructor ______________________________*/
 
-std::string Animal::getType() const { return _type; }
+Animal::~Animal() { std::cout << "Animal Destructor" << std::endl; }
 
-void Animal::makeSound() const { std::cout << "[ Animal Sound ]" << std::endl; };
+/*_______________________________ overloads ______________________________*/
 
-/*============================== destructors =============================*/
+std::ostream&
+operator<<(std::ostream& o, Animal const& rhs) {
+  o << rhs.getType() << ": ";
+  return o;
+}
 
-Animal::~Animal() { std::cout  << "Animal Destructor" << std::endl; }
+Animal&
+Animal::operator=(Animal const& o) {
+  if (&o != this)
+    _type = o._type;
+  return *this;
+}
+
+/*________________________________ methods _______________________________*/
+
+void
+Animal::makeSound() const {
+  std::cout << "[ Animal Sound ]" << std::endl;
+};
+
+/*_______________________________ accessors ______________________________*/
+
+std::string
+Animal::getType() const {
+  return _type;
+}

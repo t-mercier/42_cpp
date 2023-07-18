@@ -3,8 +3,8 @@
 /*_____________________________ constructors _____________________________*/
 
 Cat::Cat() {
-  _type = "Cat";
   _brain = new Brain();
+  _type = "Cat";
   std::cout << "Cat Constructor" << std::endl;
 }
 

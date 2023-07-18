@@ -32,14 +32,12 @@ Animal::operator=(Animal const& o) {
   return *this;
 }
 
-/*_______________________________ accessors ______________________________*/
+/*________________________________ methods _______________________________*/
 
 std::string
 Animal::getType() const {
   return _type;
 }
-
-/*________________________________ methods _______________________________*/
 
 void
 Animal::makeSound() const {

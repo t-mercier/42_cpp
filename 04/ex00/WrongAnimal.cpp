@@ -1,23 +1,42 @@
 #include "WrongAnimal.hpp"
 
-/*============================= constructors =============================*/
+/*_____________________________ constructors _____________________________*/
 
-WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
-  std::cout << "WrongAnimal Default Constructor" << std::endl;
+WrongAnimal::WrongAnimal()
+  : _type("WrongAnimal") {
+  std::cout << "WrongAnimal Constructor" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &a) : _type(a._type) {
+WrongAnimal::WrongAnimal(const WrongAnimal& a)
+  : _type(a._type) {
   std::cout << "WrongAnimal Clone Constructor" << std::endl;
 }
 
-/*=============================== methods ===============================*/
+/*______________________________ destructor ______________________________*/
 
-std::string WrongAnimal::getType() const { return _type; }
+WrongAnimal::~WrongAnimal() {
+  std::cout << "WrongAnimal Destructor" << std::endl;
+}
 
-void WrongAnimal::makeSound() const {
-  std::cout << "[ WrongAnimal ]" << std::endl;
+/*_______________________________ overloads ______________________________*/
+
+WrongAnimal&
+WrongAnimal::operator=(WrongAnimal const& rhs) {
+  if (&rhs != this)
+    _type = rhs._type;
+  return *this;
+}
+
+/*________________________________ methods _______________________________*/
+
+void
+WrongAnimal::makeSound() const {
+  std::cout << "[ WrongAnimal Sound ]" << std::endl;
 };
 
-/*============================== destructors =============================*/
+/*_______________________________ accessors ______________________________*/
 
-WrongAnimal::~WrongAnimal() { std::cout << "WrongAnimal Destructor" << std::endl; }
+std::string
+WrongAnimal::getType() const {
+  return _type;
+}

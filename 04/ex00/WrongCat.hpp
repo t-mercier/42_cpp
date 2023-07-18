@@ -4,6 +4,8 @@
 class WrongCat : public WrongAnimal {
 public:
   WrongCat();
+  WrongCat(WrongCat const&);
   ~WrongCat();
+
   void makeSound() const;
 };
